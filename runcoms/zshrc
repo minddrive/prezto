@@ -19,7 +19,8 @@ path=($path /usr/local/mysql/bin $HOME/bin)
 export LESS=-cieMR
 
 # History settings
-export HISTSIZE=1000
+unsetopt SHARE_HISTORY   # Not desired with all the shells I have open
+export HISTSIZE=3000
 export DIRSTACKSIZE=20
 
 # Undo damage by annoying Linux prompt settings that create havoc
