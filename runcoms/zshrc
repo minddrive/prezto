@@ -19,7 +19,8 @@ path=($path /usr/local/mysql/bin $HOME/bin)
 export LESS=-cieMR
 
 # History settings
-unsetopt SHARE_HISTORY   # Not desired with all the shells I have open
+setopt NO_SHARE_HISTORY   # Not desired with all the shells I have open
+setopt NO_INC_APPEND_HISTORY   # Not desired with all the shells I have open
 export HISTSIZE=3000
 export DIRSTACKSIZE=20
 
@@ -35,7 +36,7 @@ preexec () { print -Pn "\e]0;%m \a" }
 alias nohostssh='ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no'
 alias tag_mysql_read='mysql -h opsdb.tagged.com -u tagopsdb_reader -p TagOpsDB'
 alias tag_mysql_root='mysql -h opsdb.tagged.com -u root -p TagOpsDB'
-alias tag_mysql_write='mysql -h opsdb.tagged.com -u tagopsdb_writer -p TagOpsDB'
+alias tag_mysql_write='mysql -h opsdb.tagged.com -u tagopsdb_w -p TagOpsDB'
 
 alias pm='pupmanage'
 alias pmul='pupmanage update-local'
