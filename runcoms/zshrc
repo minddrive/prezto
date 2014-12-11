@@ -45,6 +45,8 @@ alias pmps='pupmanage push-to-stage'
 alias pmpp='pupmanage push-to-prod'
 alias pmpa='pupmanage push-to-all'
 
+alias skd='ssh klareau-desktop'
+
 if (( $+commands[keychain] )); then
     eval $(keychain -q --eval --agents ssh --inherit any id_rsa)
 fi
