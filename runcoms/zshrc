@@ -13,7 +13,7 @@ fi
 
 # Customize to your needs...
 
-path=(/usr/local/git/bin /opt/subversion/bin $path)
+path=(/usr/local/homebrew/bin /usr/local/git/bin /opt/subversion/bin $path)
 path=($path /Library/PostgreSQL/9.3/bin /usr/local/mysql/bin $HOME/bin)
 
 export LESS=-cieMR
@@ -34,18 +34,7 @@ preexec () { print -Pn "\e]0;%m \a" }
 #RPROMPT=' %B%W %t%b'     # prompt for right side of screen
 
 alias nohostssh='ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no'
-alias tag_mysql_read='mysql -h opsdb.tagged.com -u tagopsdb_reader -p TagOpsDB'
-alias tag_mysql_root='mysql -h opsdb.tagged.com -u root -p TagOpsDB'
-alias tag_mysql_write='mysql -h opsdb.tagged.com -u tagopsdb_w -p TagOpsDB'
-
-alias pm='pupmanage'
-alias pmul='pupmanage update-local'
-alias pmpd='pupmanage push-to-dev'
-alias pmps='pupmanage push-to-stage'
-alias pmpp='pupmanage push-to-prod'
-alias pmpa='pupmanage push-to-all'
-
-alias skd='ssh klareau-desktop'
+alias goodssl='/usr/local/opt/openssl/bin/openssl'
 
 if (( $+commands[keychain] )); then
     eval $(keychain -q --eval --agents ssh --inherit any id_rsa)
