@@ -13,8 +13,8 @@ fi
 
 # Customize to your needs...
 
-path=(/usr/local/homebrew/bin /usr/local/git/bin /opt/subversion/bin $path)
-path=($path /Library/PostgreSQL/9.3/bin /usr/local/mysql/bin $HOME/bin)
+path=(/usr/local/homebrew/bin /usr/local/git/bin $path)
+path=($path /Library/PostgreSQL/9.5/bin /usr/local/mysql/bin $HOME/bin)
 
 export LESS=-cieMR
 
@@ -40,6 +40,8 @@ if (( $+commands[keychain] )); then
     eval $(keychain -q --eval --agents ssh --inherit any id_rsa)
 fi
 
+disable_anaconda () { path=(${(@)path:#$HOME/anaconda/bin}) }
+enable_anaconda () { path=($HOME/anaconda/bin $path) }
 update_zprezto () { (cd ~/.zprezto && git pull && git submodule update --init --recursive) }
 
 #source $HOME/repos/git/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
