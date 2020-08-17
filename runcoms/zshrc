@@ -65,7 +65,7 @@ export IRCNICK=Darshan
 export IRCNAME="Entering the mind drive..."
 
 if (( $+commands[keychain] )); then
-    eval $(keychain -q --eval --agents ssh --inherit any id_rsa)
+    eval $(keychain -q --eval --agents ssh --inherit any id_rsa id_numenor)
 fi
 
 disable_anaconda () { path=(${(@)path:#$HOME/anaconda/bin}) }
