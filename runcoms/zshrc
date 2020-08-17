@@ -7,8 +7,10 @@
 #
 
 # Source Prezto.
-if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
-  source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+if [[ $(zsh --version | awk '{print $2}') > 5.0.0 ]]; then
+    if [[ -s "${ZDOTDIR:-$HOME}/.zprezto/init.zsh" ]]; then
+        source "${ZDOTDIR:-$HOME}/.zprezto/init.zsh"
+    fi
 fi
 
 # Customize to your needs...
@@ -52,8 +54,15 @@ preexec () { print -Pn "\e]0;%m \a" }
 #(%!%) '                  # two line prompt
 #RPROMPT=' %B%W %t%b'     # prompt for right side of screen
 
+alias clrmh="find ~/Mail/ -name '#*' -exec rm {} \;"
+alias rmm="refile +d"
+alias mexp="setopt rmstarsilent; rm ~/Mail/d/*; setopt normstarsilent"
+alias fullreset="echo -n \"\ec\""
 alias nohostssh='ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no'
 alias goodssl='/usr/local/opt/openssl/bin/openssl'
+
+export IRCNICK=Darshan
+export IRCNAME="Entering the mind drive..."
 
 if (( $+commands[keychain] )); then
     eval $(keychain -q --eval --agents ssh --inherit any id_rsa)
